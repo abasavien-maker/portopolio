@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abas Umam | Portfolio</title>
+<link rel="icon" href="logo.jpeg" type="image/svg+xml">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00f7ff20;
+    border-radius:50%;
+    filter:blur(120px);
+    top:-100px;
+    left:-100px;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#6f00ff25;
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-100px;
+    right:-100px;
+    z-index:-1;
+}
+
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+}
+
+.container{
+    max-width:1200px;
+    width:100%;
+}
+
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.profile{
+    text-align:center;
+}
+
+.profile img{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #00f7ff;
+    box-shadow:
+    0 0 20px #00f7ff,
+    0 0 40px #00f7ff;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+.hero-content h1{
+    font-size:60px;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.hero-content h1 span{
+    color:#00f7ff;
+}
+
+.hero-content h2{
+    margin-top:15px;
+    color:#8cb4ff;
+    font-weight:500;
+}
+
+.hero-content p{
+    margin-top:25px;
+    line-height:1.8;
+    color:#c8d4ff;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(45deg,#00f7ff,#6f00ff);
+    box-shadow:0 0 25px rgba(0,247,255,.5);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+section{
+    padding:80px 50px;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+    transition:.4s;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeUp 0.7s ease forwards;
+}
+
+.cards .card:nth-child(1){
+    animation-delay:0.08s;
+}
+
+.cards .card:nth-child(2){
+    animation-delay:0.16s;
+}
+
+.cards .card:nth-child(3){
+    animation-delay:0.24s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#00f7ff;
+}
+
+.card h3{
+    color:#00f7ff;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:1.25rem;
+}
+
+.card h3 i{
+    font-size:1.2rem;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.skill{
+    margin-bottom:20px;
+}
+
+.skill-name{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.bar{
+    height:10px;
+    background:#1b233b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,#00f7ff,#6f00ff);
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#a5b4fc;
+}
+
+.glow{
+    color:#00f7ff;
+}
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:42px;
+}
+}
+.contact-section{
+    padding:80px 50px;
+}
+
+.contact-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.contact-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.4s;
+}
+
+.contact-card:hover{
+    transform:translateY(-10px);
+    border-color:#00f7ff;
+    box-shadow:0 0 20px rgba(0,247,255,.3);
+}
+
+.contact-card i{
+    font-size:40px;
+    color:#00f7ff;
+    margin-bottom:15px;
+}
+
+.contact-card a{
+    color:white;
+    text-decoration:none;
+}
+
+.social-links{
+    margin-top:40px;
+    text-align:center;
+}
+
+.social-links a{
+    width:60px;
+    height:60px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin:10px;
+    border-radius:50%;
+    text-decoration:none;
+    color:white;
+    font-size:25px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.3s;
+}
+
+.social-links a:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00f7ff;
+    border-color:#00f7ff;
+}
+</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+<div class="container">
+
+<div class="hero">
+
+<div class="profile">
+<img src="foto.jpeg" alt="Foto Profil">
+</div>
+
+<div class="hero-content">
+<h1>Abas <span>Umam</span></h1>
+
+<h2>Mahasiswa Sistem Komputer - Universitas Pamulang Kampus Serang</h2>
+
+<p>
+Saya merupakan mahasiswa Program Studi Sistem Komputer yang memiliki pengalaman lebih dari 10 tahun dalam operasional sistem dan pengelolaan data. Memiliki minat besar pada pengembangan teknologi, manajemen sistem informasi, pengolahan data, pengembangan aplikasi web, serta implementasi solusi digital untuk pendidikan dan bisnis.
+</p>
+
+<p>
+Berpengalaman dalam membangun aplikasi berbasis web menggunakan PHP dan MySQL, mengelola sistem administrasi sekolah, membuat dashboard laporan, sistem pembayaran siswa, PPDB Online, absensi digital, hingga solusi berbasis IoT dan monitoring data.
+</p>
+
+<a href="#keahlian" class="btn">
+Lihat Keahlian
+</a>
+
+</div>
+
+</div>
+
+</div>
+</header>
+
+<section>
+
+<h2 class="title">Tentang Saya</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3><i class="fa-solid fa-code"></i> Web Developer</h3>
+<p>
+Mengembangkan aplikasi web berbasis PHP, MySQL, HTML, CSS, JavaScript serta sistem informasi untuk kebutuhan sekolah, administrasi, dan bisnis.
+</p>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-chart-line"></i> Data & Excel Specialist</h3>
+<p>
+Menguasai Microsoft Excel hingga tingkat lanjut termasuk pengolahan data, laporan keuangan, dashboard, rumus kompleks, serta otomatisasi pekerjaan administrasi.
+</p>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-server"></i> System Management</h3>
+<p>
+Berpengalaman dalam manajemen sistem operasional, administrasi data, implementasi prosedur kerja digital, dan peningkatan efisiensi proses bisnis.
+</p>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-diagram-project"></i> System Analyst</h3>
+<p>
+Menganalisis kebutuhan pengguna dan menerjemahkannya menjadi solusi aplikasi yang efektif, mudah digunakan, dan sesuai kebutuhan operasional.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="keahlian">
+
+<h2 class="title">Keahlian Profesional</h2>
+
+<div class="skills">
+
+<div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Microsoft Excel</span>
+<span>90%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Operasional Sistem</span>
+<span>95%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:95%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Web Development</span>
+<span>85%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+</div>
+
+<div>
+
+<div class="skill">
+<div class="skill-name">
+<span>PHP & MySQL</span>
+<span>85%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Manajemen Sistem</span>
+<span>90%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Problem Solving</span>
+<span>88%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:88%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Pencapaian & Kompetensi</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3><i class="fa-solid fa-trophy"></i> 10+ Tahun Pengalaman</h3>
+<p>
+Memiliki pengalaman panjang dalam operasional sistem, administrasi data, dan pengelolaan informasi digital.
+</p>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-rocket"></i> Pengembang Sistem Sekolah</h3>
+<p>
+Membangun sistem pembayaran siswa, PPDB Online, absensi digital, laporan keuangan, dan dashboard manajemen sekolah.
+</p>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-satellite-dish"></i> Teknologi Modern</h3>
+<p>
+Mengembangkan solusi berbasis web dan mulai mendalami Internet of Things (IoT), ESP32, monitoring data, dan dashboard online.
+</p>
+</div>
+
+</div>
+
+</section>
+<section class="contact-section">
+
+<div class="contact-container">
+
+<h2 class="title">Kontak & Media Sosial</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<i class="fas fa-envelope"></i>
+<h3>Email</h3>
+<p>
+<a href="mailto:abasumam@gmail.com">
+abasumam@gmail.com
+</a>
+</p>
+</div>
+
+<div class="contact-card">
+<i class="fab fa-whatsapp"></i>
+<h3>WhatsApp</h3>
+<p>
+<a href="https://wa.me/6281717186245" target="_blank">
++62 817-1718-6245
+</a>
+</p>
+</div>
+
+<div class="contact-card">
+<i class="fas fa-map-marker-alt"></i>
+<h3>Lokasi</h3>
+<p>
+Serang, Banten, Indonesia
+</p>
+</div>
+
+</div>
+
+<div class="social-links">
+
+<a href="https://facebook.com/ibnu.assyafah" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+
+<a href="https://github.com/abasavien-maker" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="https://linkedin.com/in/usernameanda" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+</section>
+<footer>
+<h3 class="glow">ABAS UMAM</h3>
+<p>System Management • Web Developer • Data Analyst • Computer Enthusiast</p>
+<p style="margin-top:10px;">
+© 2026 All Rights Reserved
+</p>
+</footer>
+
+</body>
+</html>
